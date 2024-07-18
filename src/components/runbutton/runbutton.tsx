@@ -29,6 +29,7 @@ export default function RunButton() {
     // const blob = new Blob([binary as Uint8Array], { type: 'application/wasm' });
     // const url = URL.createObjectURL(blob);
     // setOutput(url);
+    console.log(output.data)
   };
   return <button onClick={compile}>Run</button>
 }
