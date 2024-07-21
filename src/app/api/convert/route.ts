@@ -11,14 +11,17 @@ export async function GET(req: NextRequest) {
 
   // const { error, binary } = await asc.compileString(code as string, { optimize: true });
   let result;
+  const script = 'npx asc '
   try {
-    result = iconv.decode(execSync('ping 8.8.8.8'), 'euc-kr').toString();
+    // result = iconv.decode(execSync('ping 8.8.8.8'), 'euc-kr').toString();
     // exec('ping 8.8.8.8', (error, stdout, stderr) => {
     //   result = stdout
     //   console.log(result)
     // return stdout
     // })
-    return NextResponse.json(result)
+    const { error, stdout } = await asc.compileString(code as string, { optimize: true });
+    console.log(error)
+    return NextResponse.json('hello')
     // console.log(result)
   } catch (e) {
     console.log(e)
